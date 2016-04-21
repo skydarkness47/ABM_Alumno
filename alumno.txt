@@ -1,0 +1,3 @@
+nombre=>apellido=>legajo=>IMG_1856.JPG
+nombre=>apellido=>123=>IMG_1966.JPG
+nombre=>apellido=>123=>IMG_1966.JPG
