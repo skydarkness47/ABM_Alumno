@@ -13,30 +13,51 @@ public $foto;
 
 	public function __construct($nombre,$apellido,$legajo,$foto)
 		{
-
+			$ext=explode(".",$foto);
+			var_dump($ext);
 			$this->nombre = $nombre;
 			$this->apellido=$apellido;
 			$this->legajo=$legajo;
-			$this->foto=$foto;
+			$this->foto=$apellido."_".$nombre."_".$legajo.".".$ext[1];
+			var_dump($this->foto);
 		
 		}
-		public  function Guardar()
+
+
+	public  function Guardar()
 		{
 
 		$archivo=fopen("alumno.txt", "a");//escribe y mantiene la informacion existente		
-	
-		$renglon=$this->nombre."=>".$this->apellido."=>".$this->legajo."=>".$this->foto."\n";		 
-		if(fwrite($archivo,$renglon))
+		$renglon=$this->nombre."=>".$this->apellido."=>".$this->legajo."=>".$this->foto."\n";	
+		$arrayAlumnos=Alumno::TraerTodos();		
+		foreach ($arrayAlumnos as $alumno)
 		{
-			move_uploaded_file($_FILES['archivo']['tmp_name'],"Fotitos/$this->foto");
-			fclose($archivo);
-			return true;
-		}else  {
-			fclose($archivo);
-			return false;
+			$foto = trim($alumno[3]);
+				if($this->foto==$foto)
+					{	
+						move_uploaded_file("fotitos/$foto","Fotitos/$this->foto");
+
+					}
+								
+						
+		}
+			
+					if(fwrite($archivo,$renglon))
+					{		
+						$ext=explode(".",$foto);
+						if($ext != "jpg")
+						move_uploaded_file($_FILES['archivo']['tmp_name'],"Fotitos/$this->foto");
+							fclose($archivo);
+							return true;
+					}
+						else
+					  {
+						fclose($archivo);
+						}		
+	return false;
 		}			
 	
-		}
+
 
 public static function modificar($alumno)
 {
@@ -87,7 +108,7 @@ public static function borrar($alumno)
  				if($alumno->legajo == $item[2])
  				{
  					$renglon="";
-					
+					unlink("fotitos/$alumno->foto");
  					$bool = true;
  	             }else {
  	             	

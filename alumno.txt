@@ -1,3 +1,5 @@
-nombre=>apellido=>legajo=>IMG_1856.JPG
-nombre=>apellido=>123=>IMG_1966.JPG
-nombre=>apellido=>123=>IMG_1966.JPG
+nombre=>apellido=>legajo=>apellido_nombre_legajo.Array
+nombre=>apellido=>legajo=>apellido_nombre_legajo.JPG
+nombre=>apellido=>legajo=>apellido_nombre_legajo.JPG
+nombre=>apellido=>legajo=>apellido_nombre_legajo.JPG
+nombre=>apellido=>2232342=>apellido_nombre_2232342.JPG

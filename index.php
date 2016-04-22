@@ -1,3 +1,5 @@
+
+
 <html>
 <head>
 	<title></title>
@@ -15,8 +17,8 @@
   <input type="submit"  name="modificacion" value="modificar">
    <input type="submit"  name="traer_alumno" value="traer">
    <?php 
-Alumno::CrearTablaAlumnos();
-      include("tablaalumnos.php");
+//Alumno::CrearTablaAlumnos();
+  //    include("tablaalumnos.php");
 
      ?>
 </form>

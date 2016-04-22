@@ -9,7 +9,7 @@ if(isset($_POST['alta'])){
 
 
 $alumno->Guardar();
-var_dump($alumno->TraerTodos());
+
 }elseif(isset($_POST['baja']))
 {
 
