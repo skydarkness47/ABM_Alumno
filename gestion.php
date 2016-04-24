@@ -20,7 +20,6 @@ Alumno::borrar($alumno);
 	Alumno::modificar($alumno);
 }elseif(isset($_POST['traer_alumno']))
 {
-	var_dump(Alumno::TraerUnAlumno($alumno->legajo));
 	
 }
 //Alumno::CrearTablaAlumnos();

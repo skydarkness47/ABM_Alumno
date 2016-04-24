@@ -1,4 +1,9 @@
+<?php
+   require "alumno.php";
+Alumno::CrearTablaAlumnos();
 
+
+?>
 
 <html>
 <head>
@@ -17,8 +22,8 @@
   <input type="submit"  name="modificacion" value="modificar">
    <input type="submit"  name="traer_alumno" value="traer">
    <?php 
-//Alumno::CrearTablaAlumnos();
-  //    include("tablaalumnos.php");
+
+     include("tablaalumnos.php");
 
      ?>
 </form>

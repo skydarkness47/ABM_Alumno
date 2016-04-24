@@ -1,0 +1,1 @@
+ <table border=1><th> NOMBRE </th><th> APELLIDO </th><th> FOTO </th><th> LEGAJO</th> </table>
