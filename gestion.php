@@ -26,5 +26,5 @@ Alumno::borrar($alumno);
 
 
 
-
+header("location:index.php");
 ?>

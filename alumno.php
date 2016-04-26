@@ -9,7 +9,7 @@
 public $nombre;
 public $apellido;
 public $legajo;
-public $foto;
+public $foto; 
 
 	public function __construct($nombre,$apellido,$legajo,$foto)
 		{
@@ -25,21 +25,26 @@ public $foto;
 
 	public  function Guardar()
 		{
+			$ahora =date("Y-m-d H:i:s");
 
 		$archivo=fopen("alumno.txt", "a");//escribe y mantiene la informacion existente		
 		$renglon=$this->nombre."=>".$this->apellido."=>".$this->legajo."=>".$this->foto."\n";	
-		$arrayAlumnos=Alumno::TraerTodos();		
+		$arrayAlumnos=Alumno::TraerTodos();	
+
 		foreach ($arrayAlumnos as $alumno)
 		{
 
 			$foto = trim($alumno[3]);
 		
 			if($alumno != "")
-				if($this->foto==$foto && $this->foto != "")
+				if($this->foto==$foto)
 					{	
+						
+						die();
 						$ext=explode(".",$this->foto);
 						if($ext[1] == "jpg")
-						move_uploaded_file("fotitos/$foto","Fotitos/$this->foto");
+
+						move_uploaded_file($_FILES['archivo']['tmp_name'],"Fotitos/$this->foto".$ahora);
 
 					}
 								
@@ -123,7 +128,9 @@ public static function borrar($alumno)
  				if($alumno->legajo == $item[2])
  				{
  					$renglon="";
-					unlink("fotitos/$alumno->foto");
+ 					$item[3]=trim($item[3]);
+
+ 					unlink("fotitos/$item[3]");
  					$bool = true;
  	             }else {
  	             	
@@ -140,7 +147,6 @@ public static function borrar($alumno)
 	
 
 return $bool;
-	  return $bool;
 	
 	
 }
